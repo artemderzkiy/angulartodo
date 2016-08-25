@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" data-framework="firebase">
+<head>
+	<meta charset="UTF-8">
+	<title>angular doc</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+
+</head>
+<body ng-controller="toDoCtrl">
+
+	<input type="text" class="form-control" ng-model="searchText.name"  placeholder="search name">
+	<div class="row">
+	<div class="col-sm-6">
+	<table class="table table-stripped">
+		<tr>
+			<th>
+				<a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+					Name
+					<i ng-show="sortType == 'name' && !sortReverse" class="glyphicon glyphicon-arrow-up"></i>
+					<i ng-show="sortType == 'name' && sortReverse" class="glyphicon glyphicon-arrow-down"></i>
+				</a>
+			</th>
+			<th>
+				<a href="#" ng-click="sortType = 'date'; sortReverse = !sortReverse">
+					Date
+					<i ng-show="sortType == 'date' && !sortReverse" class="glyphicon glyphicon-arrow-up"></i>
+					<i ng-show="sortType == 'date' && sortReverse" class="glyphicon glyphicon-arrow-down"></i>
+				</a>
+			</th>
+			<th></th>
+		</tr>
+		<tr ng-repeat="todo in model.todos|filter:searchText| orderBy:sortType:!sortReverse" ng-class= "(todo.foolday=='true') ? 'fulltime' : ''"  track by $index">
+
+			<td>{{todo.name}}</td>
+			<td>{{todo.date }}</td>
+			<td>
+				<button class="btn btn-primary" ng-click="edit(todo)"  >Edit</button> 
+				<button class="btn btn-error" ng-click="remove(todo)">Delete</button>
+
+			</td>
+		</tr>
+	</table>
+	<button class="btn btn-warning" ng-click="showme=true">Add new</button>
+</br>
+</div>
+
+<div class="col-sm-6">
+<form ng-show="showme"  name="form" >
+
+	<div class="form-group" ng-class="{ 'has-error' : form.name.$invalid && !form.name.$pristine }">
+		<input type="text" name="name" class="form-control" placeholder="type name" ng-model="model.selected.name" ng-minlength="3" ng-maxlength="15" required ">
+		<p ng-show="form.name.$error.minlength" class="help-block">name is too short.</p>
+		<p ng-show="form.name.$error.maxlength" class="help-block">name is too long.</p>
+	</div >
+
+	<div class="form-group" ng-class="{ 'has-error' : form.date.$invalid && !form.date.$pristine }">
+		<input name="date"  class="form-control" placeholder="type date" ng-model="model.selected.date" ng-pattern="/(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d/" required ">
+		<p ng-show="form.date.$error.pattern" class="help-block">Date should loke like dd.mm.yyyy</p>
+	</div>
+
+
+	<div class="form-group">
+		<input type="checkbox" ng-model="model.selected.foolday"
+           ng-true-value="'true'" ng-false-value="'false'">
+           <p>foolday {{model.selected.foolday}}</p>
+	</div>
+
+
+	<button class="btn btn-primary" ng-click="save(model.name)" ng-disabled="form.$invalid">Save</button> 
+	<button class="btn btn-error" ng-click="showme=false">NOOOOO</button>
+
+</form>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js">	 </script>
+<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+<script type="text/javascript" src="controller.js"></script>
+
+</body>
+</html>
