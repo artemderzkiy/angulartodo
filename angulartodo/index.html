@@ -47,7 +47,7 @@
 			</td>
 		</tr>
 	</table>
-	<button class="btn btn-warning" ng-click="showme=true">Add new</button>
+	<button class="btn btn-warning" ng-click="showme=true" ng-click="reset()">Add new</button>
 </br>
 </div>
 
@@ -74,20 +74,14 @@
 
 
 	<button class="btn btn-primary" ng-click="save(model.name)" ng-disabled="form.$invalid">Save</button> 
-	<button class="btn btn-error" ng-click="showme=false">NOOOOO</button>
+	<button class="btn btn-error" ng-click="showme=false" ng-click="reset()">NOOOOO</button>
 
 </form>
 </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js">	 </script>
-<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<!-- Firebase -->
-<script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
-<!-- AngularFire -->
-<script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+
 <script type="text/javascript" src="controller.js"></script>
 
 </body>
