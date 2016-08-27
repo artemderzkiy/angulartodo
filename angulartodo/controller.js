@@ -1,4 +1,19 @@
 var app=angular.module("app",[]);
+
+app.directive("tableDir",[function() {
+return {
+	require : ['tableDir'],
+	restrict: "E",
+	scope : {
+		todos : "="
+	},
+	templateUrl: 'templatetable.html',
+	link: function function_name(argument) {
+		debugger;
+	}
+}
+}]);
+
 app.controller("toDoCtrl",["$scope","$http", 
 	function($scope, $http) {
 //var url= "https://epamangular.firebaseio.com/todos";
@@ -17,18 +32,12 @@ $http.get("https://epamangular.firebaseio.com/todos.json")
 	$scope.sortType     = 'name';
     $scope.sortReverse  = false;
     $scope.textClass = '';  
-	$scope.model = {
-		// todos: [
-		// {'name':"go",'date':'11.08.2016','foolday':'false'},
-		// {'name':"run",'date':'11.08.2016','foolday':'false'},
-		// {'name':"sleep",'date':'11.08.2016', 'foolday':'true'},		
-		// ],
+	$scope.model = {		
 		selected: {},
 		currentItem: undefined,
 		name : "",
 
 	};
-
 
 
 

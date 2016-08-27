@@ -1,0 +1,29 @@
+<table class="table table-stripped">
+		<tr>
+			<th>
+				<a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+					Name
+					<i ng-show="sortType == 'name' && !sortReverse" class="glyphicon glyphicon-arrow-up"></i>
+					<i ng-show="sortType == 'name' && sortReverse" class="glyphicon glyphicon-arrow-down"></i>
+				</a>
+			</th>
+			<th>
+				<a href="#" ng-click="sortType = 'date'; sortReverse = !sortReverse">
+					Date
+					<i ng-show="sortType == 'date' && !sortReverse" class="glyphicon glyphicon-arrow-up"></i>
+					<i ng-show="sortType == 'date' && sortReverse" class="glyphicon glyphicon-arrow-down"></i>
+				</a>
+			</th>
+			<th></th>
+		</tr>
+		<tr ng-repeat="todo in model.todos|filter:searchText| orderBy:sortType:!sortReverse" ng-class= "(todo.foolday=='true') ? 'fulltime' : ''"  track by $index">
+
+			<td>{{todo.name}}</td>
+			<td>{{todo.date }}</td>
+			<td>
+				<button class="btn btn-primary" ng-click="edit(todo)"  >Edit</button> 
+				<button class="btn btn-error" ng-click="remove(todo)">Delete</button>
+
+			</td>
+		</tr>
+	</table>
