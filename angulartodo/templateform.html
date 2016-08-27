@@ -16,24 +16,25 @@
 
 <div class="form-group">
 <label>
-    <input type="radio" ng-model="model.selected.foolday" value="todoCl">
+    <input type="radio" ng-model="model.selected.foolday" value="todoCl" required>
     todo
   </label><br/>
   <label>
-    <input type="radio" ng-model="model.selected.foolday" value="inprogress">
+    <input type="radio" ng-model="model.selected.foolday" value="inprogress" required>
     in progress
   </label><br/>
   <label>
-    <input type="radio" ng-model="model.selected.foolday" value="partdone">   
+    <input type="radio" ng-model="model.selected.foolday" value="partdone" required ng-click="requiredCom=true">   
     part done
   </label>
   <br/>
-   <input type="text" ng-model="model.selected.comment" placeholder="why part done?!" ng-show="model.selected.foolday==='partdone'" >
+   <input type="text" ng-model="model.selected.comment" placeholder="why part done?!" ng-show="model.selected.foolday==='partdone'" ng-required="requiredCom">
 </div>
 
 	
 
-	<button class="btn btn-primary" ng-click="save(model.name)" ng-disabled="form.$invalid">Save</button> 
-	<button class="btn btn-error" ng-click="showme=false" ng-click="reset()">NOOOOO</button>
+	<button class="btn btn-primary" ng-click="save(model.name)" ng-disabled="form.$invalid"><i class="glyphicon glyphicon-ok"></i> Save</button> 
+	<button class="btn btn-warning" ng-click="showme=false" ng-click="reset()">
+	<i class="glyphicon glyphicon-remove"></i> Don't save</button>
 
 </form>

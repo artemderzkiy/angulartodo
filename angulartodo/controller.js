@@ -11,6 +11,7 @@ angular.module("app",[])
 var i = 0;
 var j=10;
 $scope.end=false;
+$scope.requiredCom = false;
 
 $scope.showMore = function() {
 	$http.get("https://epamangular.firebaseio.com/todos.json")

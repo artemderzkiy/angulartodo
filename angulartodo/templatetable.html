@@ -1,6 +1,6 @@
 
 
-<table class="table table-stripped">
+<table class="table table-stripped  ">
 		<tr>
 			<th>
 				<a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
@@ -10,24 +10,24 @@
 				</a>
 			</th>
 			<th>Deadline Date</th>
-			<th></th>
+			<th>Controls</th>
 		</tr>
 		<tr ng-repeat="todo in model.todos|filter:searchText| filter: model.todos.foolday |orderBy:sortType:!sortReverse" ng-class= "todo.foolday"  track by $index">
 
 
 
 			<td>{{todo.name}}
-			<p class="comment" ng-show="todo.foolday==='partdone'">  {{todo.comment}}</p>
+			<div class="comment" ng-show="todo.foolday==='partdone'"><div class="well well-xs">{{todo.comment}}</div> </div>
 			</td>
 			<td>{{todo.date }}</td>			
 			<td>
-				<button class="btn btn-primary" ng-click="edit(todo)"  >Edit</button> 
-				<button class="btn btn-error" ng-click="remove(todo)">Delete</button>
+				<button class="btn btn-success" ng-click="edit(todo)" ><i class="glyphicon glyphicon-pencil"></i></button> 
+				<button class="btn btn-danger" ng-click="remove(todo)"><i class="glyphicon glyphicon-trash"></i></button>
 
 			</td>
 		</tr>
 	</table>
 
-<button class="btn btn-warn" ng-click="showMore()" ng-disabled="end">Show More</button>
+
 
 

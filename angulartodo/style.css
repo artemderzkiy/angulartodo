@@ -1,19 +1,32 @@
-.comment
+
+label 
 {
-	border: solid black 1px;
+margin-right: 20px;
+}
+.navbar
+{
+color: white;
+font-size: 20px;
+}
+.filters {
+	float: left;
 }
 
+tr:hover
+{
+	opacity: 0.5;
+}
 .todoCl
 {
-	background-color: red;
+	background-color: #FFFF99;
 }
 .inprogress
 {
-	background-color: blue;
+	background-color: #99CCFF;
 }
 .partdone
 {
-	background-color: yellow;
+	background-color: #FF9999;
 }
 body {
 	text-align: center

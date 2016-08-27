@@ -14,35 +14,42 @@
 
 </head>
 <body ng-controller="toDoCtrl">
+<div class="container">
+<nav class="navbar navbar-inverse">
 
-	<input type="text" class="form-control" ng-model="searchText.name"  placeholder="search name">
+<div>
+  <input type="text" class="form-control" ng-model="searchText.name"  placeholder="search name">
+</div>
+</nav>
 
 	
+	<div>
 	<label>
     <input type="radio" ng-model="model.todos.foolday" value="todoCl">
     todo
-  </label><br/>
+  </label>
   <label>
     <input type="radio" ng-model="model.todos.foolday" value="inprogress">
     in progress
-  </label><br/>
+  </label>
   <label>
     <input type="radio" ng-model="model.todos.foolday" value="partdone">   
     part done
   </label>
-  <br/>
+  
     <label>
     <input type="radio" ng-model="model.todos.foolday" >   
     No filter
   </label>
+</div>
 	<div class="row">
-	<div class="col-sm-6">
+	<div ng-class="showme ? 'col-sm-6' : 'col-sm-12' ">
 
 
 	<table-dir todos="model.todos"></table-dir>
 
-
-	<button class="btn btn-warning" ng-click="showme=true" ng-click="reset()">Add new</button>
+<button class="btn btn-warn" ng-click="showMore()" ng-disabled="end"> Show <i class="glyphicon glyphicon-chevron-down"></i> More</button>
+	<button class="btn btn-warning" ng-click="showme=true" ng-click="reset()"> <i class="glyphicon glyphicon-plus "></i> Add new</button>
 </br>
 </div>
 
@@ -54,6 +61,7 @@
 
 
 
+</div>
 </div>
 
 
