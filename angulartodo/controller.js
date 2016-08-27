@@ -1,32 +1,37 @@
-var app=angular.module("app",[]);
+angular.module("app",[])
 
-app.directive("tableDir",[function() {
-return {
-	require : ['tableDir'],
-	restrict: "E",
-	scope : {
-		todos : "="
-	},
-	templateUrl: 'templatetable.html',
-	link: function function_name(argument) {
-		debugger;
-	}
-}
-}]);
 
-app.controller("toDoCtrl",["$scope","$http", 
-	function($scope, $http) {
+
+.controller("toDoCtrl",	function($scope, $http) {
 //var url= "https://epamangular.firebaseio.com/todos";
 //var fireRef = new Firebase(url);
 
 //var syncObject= $firebaseObject(fireRef);
 //syncObject.$bindTo($scope, "todos");
-//$scope.todos=$firebaseArray(fireRef);
+var i = 0;
+var j=10;
+$scope.end=false;
 
-$http.get("https://epamangular.firebaseio.com/todos.json")
+$scope.showMore = function() {
+	$http.get("https://epamangular.firebaseio.com/todos.json")
     .then(function(response) {
-        $scope.model.todos = response.data;
-        //console.log(response.data)
+    	//console.log(i)
+        $scope.model.todos = response.data.slice(i,j);
+         if (j>=response.data.length)
+        {
+        	$scope.end =true;
+        	return $scope.end
+        }
+        j=j+5;
+
+        });
+}
+
+$scope.todoHttp = $http.get("https://epamangular.firebaseio.com/todos.json")
+    .then(function(response) {
+
+        $scope.model.todos = response.data.slice(0,5);
+       // console.log(response.data)
 });
 
 	$scope.sortType     = 'name';
@@ -44,6 +49,7 @@ $http.get("https://epamangular.firebaseio.com/todos.json")
 
 $scope.fullTimeClass = function(name) {
 $scope.textClass = name;
+
 };
 
 $scope.remove = function (todo) {
@@ -72,6 +78,7 @@ $http.put("https://epamangular.firebaseio.com/todos.json",  $scope.model.todos )
 	$scope.add = function () {
 		$scope.model.selected = {};
 
+
 }
 
 $scope.save = function () {
@@ -82,18 +89,21 @@ $scope.save = function () {
 		$scope.model.currentItem.name = $scope.model.selected.name;
 		$scope.model.currentItem.date = $scope.model.selected.date;
 		$scope.model.currentItem.foolday = $scope.model.selected.foolday;
+		$scope.model.currentItem.comment = $scope.model.selected.comment;
 $http.put("https://epamangular.firebaseio.com/todos.json",  $scope.model.todos );
 		$scope.reset();
+
 
 	}
 	else
 	{
 		$scope.model.todos.push($scope.model.selected);
-		$scope.fullTimeClass('fulltime');
+		$scope.fullTimeClass($scope.model.selected.foolday);
 		$http.put("https://epamangular.firebaseio.com/todos.json",  $scope.model.todos );
 		$scope.reset();
 	}
 	$scope.showme=false;
+	$scope.end=false;
 };
 
 $scope.reset = function () {	
@@ -113,4 +123,30 @@ $scope.edit = function (item) {
 
 
 
-}])
+}).
+
+directive("tableDir",[function() {
+return {
+	
+	restrict: "E",	
+
+	templateUrl: '/templatetable.html',
+	link: function function_name() {
+		console.log("HEEY IM IN DIRECTIVE TABLE");
+		
+	}
+}
+}]).
+
+directive("formDir",[function() {
+return {
+	
+	restrict: "E",		
+	templateUrl: '/templateform.html',
+	link: function function_name() {
+		console.log("HEEY IM IN DIRECTIVE FORM");
+		
+	}
+}
+}]);
+

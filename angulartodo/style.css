@@ -1,6 +1,19 @@
-.fulltime
+.comment
+{
+	border: solid black 1px;
+}
+
+.todoCl
 {
 	background-color: red;
+}
+.inprogress
+{
+	background-color: blue;
+}
+.partdone
+{
+	background-color: yellow;
 }
 body {
 	text-align: center

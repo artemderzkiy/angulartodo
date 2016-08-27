@@ -8,16 +8,30 @@
 
 	<div class="form-group" ng-class="{ 'has-error' : form.date.$invalid && !form.date.$pristine }">
 		<input name="date"  class="form-control" placeholder="type date" ng-model="model.selected.date" ng-pattern="/(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d/" required ">
-		<p ng-show="form.date.$error.pattern" class="help-block">Date should loke like dd.mm.yyyy</p>
+		<p ng-show="form.date.$error.pattern" class="help-block">Date should look like dd.mm.yyyy</p>
 	</div>
 
 
-	<div class="form-group">
-		<input type="checkbox" ng-model="model.selected.foolday"
-           ng-true-value="'true'" ng-false-value="'false'">
-           <p>foolday {{model.selected.foolday}}</p>
-	</div>
 
+
+<div class="form-group">
+<label>
+    <input type="radio" ng-model="model.selected.foolday" value="todoCl">
+    todo
+  </label><br/>
+  <label>
+    <input type="radio" ng-model="model.selected.foolday" value="inprogress">
+    in progress
+  </label><br/>
+  <label>
+    <input type="radio" ng-model="model.selected.foolday" value="partdone">   
+    part done
+  </label>
+  <br/>
+   <input type="text" ng-model="model.selected.comment" placeholder="why part done?!" ng-show="model.selected.foolday==='partdone'" >
+</div>
+
+	
 
 	<button class="btn btn-primary" ng-click="save(model.name)" ng-disabled="form.$invalid">Save</button> 
 	<button class="btn btn-error" ng-click="showme=false" ng-click="reset()">NOOOOO</button>
