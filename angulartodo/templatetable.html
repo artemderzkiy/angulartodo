@@ -2,6 +2,7 @@
 
 <table class="table table-stripped  ">
 		<tr>
+		<th>User</th>
 			<th>
 				<a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
 					Name
@@ -12,10 +13,10 @@
 			<th>Deadline Date</th>
 			<th>Controls</th>
 		</tr>
-		<tr ng-repeat="todo in model.todos|filter:searchText| filter: model.todos.foolday |orderBy:sortType:!sortReverse" ng-class= "todo.foolday"  track by $index">
+		<tr ng-repeat="todo in model.todos  | filter:searchText| filter: model.todos.foolday |orderBy:sortType:!sortReverse"  ng-class= "todo.foolday"  track by $index">
 
 
-
+			<td>{{todo.nameUser }}</td>	
 			<td>{{todo.name}}
 			<div class="comment" ng-show="todo.foolday==='partdone'"><div class="well well-xs">{{todo.comment}}</div> </div>
 			</td>

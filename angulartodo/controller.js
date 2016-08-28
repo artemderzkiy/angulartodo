@@ -32,7 +32,14 @@ $scope.todoHttp = $http.get("https://epamangular.firebaseio.com/todos.json")
     .then(function(response) {
 
         $scope.model.todos = response.data.slice(0,5);
-       // console.log(response.data)
+        console.log(response.data)
+});
+
+ $http.get("https://epamangular.firebaseio.com/users/users.json")
+    .then(function(response) {
+
+        $scope.model.users = response.data;
+       console.log($scope.model.users)
 });
 
 	$scope.sortType     = 'name';
@@ -84,10 +91,12 @@ $http.put("https://epamangular.firebaseio.com/todos.json",  $scope.model.todos )
 
 $scope.save = function () {
 	console.log("Saving item");    
+		
 
 	if($scope.model.currentItem != undefined)
 	{
 		$scope.model.currentItem.name = $scope.model.selected.name;
+		$scope.model.currentItem.nameUser = $scope.model.selected.nameUser;
 		$scope.model.currentItem.date = $scope.model.selected.date;
 		$scope.model.currentItem.foolday = $scope.model.selected.foolday;
 		$scope.model.currentItem.comment = $scope.model.selected.comment;
