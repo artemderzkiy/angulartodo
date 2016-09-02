@@ -7,8 +7,8 @@
 	</div >
 
 <div class="form-group" ng-class="{ 'has-error' : form.user.$invalid && !form.user.$pristine }" >
-		<select name="user" class="form-control" ng-model="model.selected.nameUser" ng-minlength="2" required>
-			<option ng-repeat="user in model.users" value={{user.nameUser}}>{{user.nameUser}}</option>
+		<select name="user" class="form-control" ng-model="model.selected.nameUser" ng-minlength="2"  required>
+			<option ng-repeat="user in model.users" value={{user.nameUser}} >{{user.nameUser}}</option>
 		</select>
 		<p ng-show="form.user.$error.minlength" class="help-block">You didn't choose anything</p>		
 	</div>

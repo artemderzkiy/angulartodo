@@ -1,8 +1,8 @@
-angular.module("app",[])
-
-
-
-.controller("toDoCtrl",	function($scope, $http) {
+(function() {
+	'use strict';
+	angular
+	.module('app')
+	.controller("toDoCtrl",	function($scope, $http) {
 //var url= "https://epamangular.firebaseio.com/todos";
 //var fireRef = new Firebase(url);
 
@@ -133,30 +133,12 @@ $scope.edit = function (item) {
 
 
 
-}).
+})
 
-directive("tableDir",[function() {
-return {
-	
-	restrict: "E",	
 
-	templateUrl: '/templatetable.html',
-	link: function function_name() {
-		console.log("HEEY IM IN DIRECTIVE TABLE");
-		
-	}
-}
-}]).
+})()
 
-directive("formDir",[function() {
-return {
-	
-	restrict: "E",		
-	templateUrl: '/templateform.html',
-	link: function function_name() {
-		console.log("HEEY IM IN DIRECTIVE FORM");
-		
-	}
-}
-}]);
+
+
+
 

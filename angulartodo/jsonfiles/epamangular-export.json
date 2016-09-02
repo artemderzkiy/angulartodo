@@ -1,0 +1,67 @@
+{
+  "todos" : [ {
+    "date" : "11.08.2016",
+    "foolday" : "todoCl",
+    "name" : "teach Angular",
+    "nameUser" : "Artem"
+  }, {
+    "comment" : "too lot to study",
+    "date" : "12.08.2016",
+    "foolday" : "partdone",
+    "name" : "study Angular",
+    "nameUser" : "Grigoriy"
+  }, {
+    "date" : "11.09.2016",
+    "foolday" : "inprogress",
+    "name" : "write program",
+    "nameUser" : "Ivan"
+  }, {
+    "comment" : "too lot of food...",
+    "date" : "31.08.2016",
+    "foolday" : "partdone",
+    "name" : "eat",
+    "nameUser" : "Artem"
+  }, {
+    "date" : "11.11.2012",
+    "foolday" : "todoCl",
+    "name" : "end university",
+    "nameUser" : "Grigoriy"
+  }, {
+    "date" : "21.08.2016",
+    "foolday" : "todoCl",
+    "name" : "read technical",
+    "nameUser" : "Dmitriy"
+  }, {
+    "date" : "12.09.2016",
+    "foolday" : "inprogress",
+    "name" : "work",
+    "nameUser" : "Ivan"
+  }, {
+    "date" : "23.09.2016",
+    "foolday" : "inprogress",
+    "name" : "kill yourself",
+    "nameUser" : "Grigoriy"
+  }, {
+    "comment" : "too difficult",
+    "date" : "01.08.2016",
+    "foolday" : "partdone",
+    "name" : "study React",
+    "nameUser" : "Dmitriy"
+  }, {
+    "date" : "07.07.2016",
+    "foolday" : "inprogress",
+    "name" : "go home",
+    "nameUser" : "Ivan"
+  } ],
+  "users" : {
+    "users" : [ {
+      "nameUser" : "Artem"
+    }, {
+      "nameUser" : "Grigoriy"
+    }, {
+      "nameUser" : "Dmitriy"
+    }, {
+      "nameUser" : "Ivan"
+    } ]
+  }
+}
