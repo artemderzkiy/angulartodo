@@ -8,7 +8,7 @@
 	function ToDoFac($q,FirebaseReq,TODOURL,USERURL) {
 		var vm ={};
 
-		vm.properties ={
+		vm.propers ={
 			todos : {},
 			users : {}
 		};
@@ -35,11 +35,11 @@
 			.then(function(response) {
 				switch(name){
 					case 'todos' :
-					vm.properties.todos=response;
+					vm.propers.todos=response;
 					//console.log('im in factory todos');
 					break;
 					case 'users' :
-					vm.properties.users=response;
+					vm.propers.users=response;
 					//console.log('im in factory users');
 					break;
 				}

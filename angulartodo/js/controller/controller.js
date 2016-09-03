@@ -8,8 +8,8 @@
 
 //grab info from firebase and slice it to 5 items
 function toDoCtrl($http,$scope, ToDoFac) {
-	let i = 0;
-	let j=10;
+	var i = 0;
+	var j=10;
 	$scope.end=false;
 	$scope.requiredCom = false;
 	$scope.sortType     = 'name';
@@ -20,8 +20,9 @@ function toDoCtrl($http,$scope, ToDoFac) {
 		currentItem: undefined,
 		name : "",
 	};
+	todoHttp();
 
-	$scope.todoHttp = function() {
+	 function todoHttp() {
 		ToDoFac.getDataByUrl('users')
 		.then(function(response) {
 		//console.log('im in new metod users');
@@ -41,7 +42,7 @@ function toDoCtrl($http,$scope, ToDoFac) {
 		})	
 	}
 
-	$scope.todoHttp();
+	
 
 
 //show more button metod
