@@ -22,7 +22,7 @@ function toDoCtrl($http,$scope, ToDoFac) {
 	};
 	todoHttp();
 
-	 function todoHttp() {
+	function todoHttp() {
 		ToDoFac.getDataByUrl('users')
 		.then(function(response) {
 		//console.log('im in new metod users');

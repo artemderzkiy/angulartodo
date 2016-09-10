@@ -49,7 +49,7 @@
 				console.log(e);
 			})
 		}
-return vm.methods
+		return vm.methods
 	}
 
 })();

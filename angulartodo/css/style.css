@@ -1,12 +1,12 @@
 
 label 
 {
-margin-right: 20px;
+	margin-right: 20px;
 }
 .navbar
 {
-color: white;
-font-size: 20px;
+	color: white;
+	font-size: 20px;
 }
 .filters {
 	float: left;
@@ -37,4 +37,10 @@ th {
 
 input {
 	margin-bottom: 20px;
+}
+.col-sm-12 {
+	padding-left: 0px;
+}
+.col-xs-12 {
+	padding-left: 0px;
 }

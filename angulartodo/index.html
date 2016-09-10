@@ -3,60 +3,62 @@
 <head>
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Angular ToDo</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>Angular ToDo</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="css/normalize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 
-	<!-- Latest compiled and minified JavaScript -->
+  <!-- Latest compiled and minified JavaScript -->
 
 </head>
 <body ng-controller="toDoCtrl as todoc">
-<div class="container">
-<nav class="navbar navbar-inverse">
+  <div class="container fix-div">
+    <div class="col-sm-12 col-xs-12">
 
-<div>
-  <input type="text" class="form-control" ng-model="searchText.name"  placeholder="search name">
-</div>
-</nav>
+      <nav class="navbar navbar-inverse col-xs-12 col-sm-12">
+        <div>
+          <input type="text" class="form-control" ng-model="searchText.name"  placeholder="search name">
+        </div>
+      </nav>
 
-	
-	<div>
-	<label>
-    <input type="radio" ng-model="model.todos.foolday" value="todoCl">
-    todo
-  </label>
-  <label>
-    <input type="radio" ng-model="model.todos.foolday" value="inprogress">
-    in progress
-  </label>
-  <label>
-    <input type="radio" ng-model="model.todos.foolday" value="partdone">   
-    part done
-  </label>
-  
-    <label>
-    <input type="radio" ng-model="model.todos.foolday" >   
-    No filter
-  </label>
-</div>
-	<div class="row">
-	<div ng-class="showme ? 'col-sm-6' : 'col-sm-12' ">
+      
+      <div>
+       <label>
+        <input type="radio" ng-model="model.todos.foolday" value="todoCl">
+        todo
+      </label>
+      <label>
+        <input type="radio" ng-model="model.todos.foolday" value="inprogress">
+        in progress
+      </label>
+      <label>
+        <input type="radio" ng-model="model.todos.foolday" value="partdone">   
+        part done
+      </label>  
+      <label>
+        <input type="radio" ng-model="model.todos.foolday" >   
+        No filter
+      </label>
+    </div>
+  </div>
+  <div class="row">
+   <div ng-class="showme ? 'col-sm-6' : 'col-sm-12' " class="col-xs-12">
 
 
-	<table-dir todos="model.todos"></table-dir>
+     <table-dir todos="model.todos"></table-dir>
 
-<button class="btn btn-primary" ng-click="showMore()" ng-disabled="end"> Show <i class="glyphicon glyphicon-chevron-down"></i> More</button>
-	<button class="btn btn-warning" ng-click="showme=true" ng-click="reset()"> <i class="glyphicon glyphicon-plus "></i> Add new</button>
-</br>
-</div>
+     <button class="btn btn-primary" ng-click="showMore()" ng-disabled="end"> Show <i class="glyphicon glyphicon-chevron-down"></i> More</button>
+     <button class="btn btn-warning" ng-click="showme=true" ng-click="reset()"> <i class="glyphicon glyphicon-plus "></i> Add new</button>
+   </br>
+ </div>
 
-<div class="col-sm-6">
+ <div class="col-sm-6 col-xs-12">
 
-<form-dir todos="model.todos"></form-dir>
+  <form-dir todos="model.todos"></form-dir>
 
 </div>
 
